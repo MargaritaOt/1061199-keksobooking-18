@@ -15,10 +15,6 @@ var Y_MAX_COORDINATE = 630;
 
 var pinElement = document.querySelector("#pin").content.querySelector(".map__pin");
 
-var getRandonNumber = function() {
-  return Math.floor(Math.random());
-}
-
 var getRandonNumberWithLimits = function(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }

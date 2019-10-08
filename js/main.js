@@ -57,8 +57,8 @@ for (var i = 0; i < ADS_COUNT; i++) {
 }
 console.log(adsArray);
 
-var map = document.querySelector(".map");
-map.classList.remove("map--faded");
+//var map = document.querySelector(".map");
+//map.classList.remove("map--faded");
 
 var fragment = document.createDocumentFragment();
 for (var k = 0; k < adsArray.length; k++) {
@@ -73,3 +73,59 @@ for (var k = 0; k < adsArray.length; k++) {
 }
 
 document.querySelector(".map__pins").appendChild(fragment);
+
+var adFormHeader = document.querySelector(".ad-form-header");
+adFormHeader.setAttribute("disabled", "disabled");
+
+var adFormElement = document.querySelector(".ad-form__element");
+adFormElement.setAttribute("disabled", "disabled");
+
+var mapFilters = document.querySelector(".map__filters");
+mapFilters.setAttribute("disabled", "disabled");
+
+var mapPinActive = document.querySelector(".map__pin--main");
+
+mapPinActive.addEventListener("mousedown", function() {
+  var adFormHeader = document.querySelector(".ad-form-header");
+  adFormHeader.removeAttribute("disabled", "disabled");
+
+  var adFormElement = document.querySelector(".ad-form__element");
+  adFormElement.removeAttribute("disabled", "disabled");
+
+  var mapFilters = document.querySelector(".map__filters");
+  mapFilters.removeAttribute("disabled", "disabled");
+});
+
+mapPinActive.addEventListener("keydown", function(evt) {
+  if (evt.keyCode === 13) {
+  var adFormHeader = document.querySelector(".ad-form-header");
+  adFormHeader.removeAttribute("disabled", "disabled");
+
+  var adFormElement = document.querySelector(".ad-form__element");
+  adFormElement.removeAttribute("disabled", "disabled");
+
+  var mapFilters = document.querySelector(".map__filters");
+  mapFilters.removeAttribute("disabled", "disabled");
+  }
+});
+
+var capacity = document.getElementById("capacity");
+document.getElementById("room_number").addEventListener("change", function() {
+  var currentVal = this.value;
+  if (currentVal == 0) {
+    for (var i = 0; i < capacity.children.length; i++) {
+      capacity.children[i].disabled = true;
+    }
+    capacity.children[capacity.children.length - 1].disabled = false;
+    capacity.children[capacity.children.length - 1].selected = true;
+  } else {
+    for (var i = 0; i < capacity.children.length; i++) {
+      if (i < currentVal) {
+        capacity.children[i].disabled = false;
+      } else {
+        capacity.children[i].disabled = true;
+      }
+    }
+    capacity.children[0].selected = true;
+  }
+});

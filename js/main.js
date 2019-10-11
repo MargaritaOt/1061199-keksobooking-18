@@ -57,7 +57,6 @@ var adsArray = [];
 for (var i = 0; i < ADS_COUNT; i++) {
   adsArray.push(generateAd(i));
 }
-console.log(adsArray);
 
 var fragment = document.createDocumentFragment();
 for (var k = 0; k < adsArray.length; k++) {
@@ -71,48 +70,36 @@ for (var k = 0; k < adsArray.length; k++) {
   fragment.appendChild(pin);
 }
 
-/*document.querySelector('.map__pins').appendChild(fragment);*/
+/* document.querySelector('.map__pins').appendChild(fragment); */
 
 var adFormHeader = document.querySelector('.ad-form-header');
-adFormHeader.setAttribute('disabled', 'disabled');
-
 var adFormElement = document.querySelector('.ad-form__element');
-adFormElement.setAttribute('disabled', 'disabled');
-
 var mapFilters = document.querySelector('.map__filters');
+var mapPinActive = document.querySelector('.map__pin--main');
+var map = document.querySelector('.map');
+var adForm = document.querySelector('.ad-form');
+
+adFormHeader.setAttribute('disabled', 'disabled');
+adFormElement.setAttribute('disabled', 'disabled');
 mapFilters.setAttribute('disabled', 'disabled');
 
-var mapPinActive = document.querySelector('.map__pin--main');
 mapPinActive.addEventListener('mousedown', function () {
 
-  var map = document.querySelector('.map');
   map.classList.remove('map--faded');
-
+  adForm.classList.remove('ad-form--disabled');
   document.getElementById('address').value = 'x:637 y:394';
-
-  var adFormHeader = document.querySelector('.ad-form-header');
   adFormHeader.removeAttribute('disabled', 'disabled');
-
-  var adFormElement = document.querySelector('.ad-form__element');
   adFormElement.removeAttribute('disabled', 'disabled');
-
-  var mapFilters = document.querySelector('.map__filters');
   mapFilters.removeAttribute('disabled', 'disabled');
 });
 
 mapPinActive.addEventListener('keydown', function (evt) {
   if (evt.keyCode === 13) {
 
-    var map = document.querySelector('.map');
     map.classList.remove('map--faded');
-
-    var adFormHeader = document.querySelector('.ad-form-header');
+    adForm.classList.remove('ad-form--disabled');
     adFormHeader.removeAttribute('disabled', 'disabled');
-
-    var adFormElement = document.querySelector('.ad-form__element');
     adFormElement.removeAttribute('disabled', 'disabled');
-
-    var mapFilters = document.querySelector('.map__filters');
     mapFilters.removeAttribute('disabled', 'disabled');
   }
 });
@@ -126,20 +113,20 @@ function roomsSincGuest(roomNumber, capacity) {
     3: [1, 2, 3],
     100: [0]
   };
-  return function (evt) {
+  return function () {
     var value = +roomNumber.value;
     var options = capacity.options;
     var optionsLength = options.length;
     var availableOptions = optionsShow[value];
 
-    for (var i = 0; i < optionsLength; i++) {
-      if (availableOptions.indexOf(+options[i].value) !== -1) {
-        options[i].disabled = false;
-        if (+options[i].value === value || availableOptions.length === 1) {
-          options[i].selected = true;
+    for (var j = 0; j < optionsLength; j++) {
+      if (availableOptions.indexOf(+options[j].value) !== -1) {
+        options[j].disabled = false;
+        if (+options[j].value === value || availableOptions.length === 1) {
+          options[j].selected = true;
         }
       } else {
-        options[i].disabled = true;
+        options[j].disabled = true;
       }
     }
   };

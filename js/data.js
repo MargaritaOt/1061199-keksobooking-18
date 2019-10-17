@@ -1,6 +1,6 @@
 'use strict';
 
-var data = function () {
+(function () {
   var ADS_COUNT = 8;
   var PRICES = ['10000', '20000', '30000', '40000', '50000'];
   var ROOMS = ['Одна комната', 'Две комнаты', 'Три комнаты'];
@@ -57,6 +57,4 @@ var data = function () {
 
   window.ADS_COUNT = ADS_COUNT;
 
-};
-
-data();
+})();

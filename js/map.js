@@ -1,6 +1,6 @@
 'use strict';
 
-var map = function () {
+(function () {
 
   var adsArray = [];
   for (var i = 0; i < ADS_COUNT; i++) {
@@ -20,6 +20,4 @@ var map = function () {
   }
 
   document.querySelector('.map__pins').appendChild(fragment);
-};
-
-map();
+})();

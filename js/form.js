@@ -1,6 +1,6 @@
 'use strict';
 
-var form = function () {
+(function () {
 
   var ENTER_KEYCODE = 13;
   var adFormHeader = document.querySelector('.ad-form-header');
@@ -62,6 +62,4 @@ var form = function () {
   roomNumber.addEventListener('change', roomsSincGuest(roomNumber, capacity));
 
   window.ENTER_KEYCODE = ENTER_KEYCODE;
-};
-
-form ();
+})();

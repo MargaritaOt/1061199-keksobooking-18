@@ -3,13 +3,13 @@
 (function () {
 
   var adsArray = [];
-  for (var i = 0; i < ADS_COUNT; i++) {
-    adsArray.push(generateAd(i));
+  for (var i = 0; i < window.ADS_COUNT; i++) {
+    adsArray.push(window.generateAd(i));
   }
 
   var fragment = document.createDocumentFragment();
   for (var k = 0; k < adsArray.length; k++) {
-    var pin = pinElement.cloneNode(true);
+    var pin = window.pinElement.cloneNode(true);
     var obj = adsArray[k];
     pin.querySelector('img').src = obj.author.avatar;
     pin.querySelector('img').alt = obj.offer.title;

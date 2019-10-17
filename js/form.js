@@ -12,7 +12,7 @@
   adFormElement.setAttribute('disabled', 'disabled');
   mapFilters.setAttribute('disabled', 'disabled');
 
-  mapPinActive.addEventListener('mousedown', function (evt) {
+  window.mapPinActive.addEventListener('mousedown', function () {
 
     adForm.classList.remove('ad-form--disabled');
     adFormHeader.removeAttribute('disabled', 'disabled');
@@ -20,7 +20,7 @@
     mapFilters.removeAttribute('disabled', 'disabled');
   });
 
-  mapPinActive.addEventListener('keydown', function (evt) {
+  window.mapPinActive.addEventListener('keydown', function (evt) {
     if (evt.keyCode === ENTER_KEYCODE) {
 
       adForm.classList.remove('ad-form--disabled');

@@ -2,10 +2,10 @@
 
 (function () {
   window.adsLoad = function () {
+    var pinElement = document.querySelector('#pin').content.querySelector('.map__pin');
     window.load(function (adsArray) {
       var fragment = document.createDocumentFragment();
       for (var k = 0; k < adsArray.length; k++) {
-        var pinElement = document.querySelector('#pin').content.querySelector('.map__pin');
         var pin = pinElement.cloneNode(true);
         var obj = adsArray[k];
         pin.querySelector('img').src = obj.author.avatar;

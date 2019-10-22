@@ -34,7 +34,7 @@
     var onMouseMove = function (moveEvt) {
       moveEvt.preventDefault();
 
-      addressValue.value = button.style.top + ', ' + button.style.left;
+      addressValue.value = button.style.top  + ', ' + button.style.left;
 
       var shift = {
         x: startCoords.x - moveEvt.clientX,

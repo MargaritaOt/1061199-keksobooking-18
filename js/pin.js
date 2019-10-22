@@ -1,8 +1,9 @@
 'use strict';
 
 (function () {
+  var addressValue = document.getElementById('address');
 
-  document.getElementById('address').value = 'x:603 y:237';
+  addressValue.value = '603, 237';
 
   var map = document.querySelector('.map');
   window.mapPinActive = document.querySelector('.map__pin--main');
@@ -19,7 +20,7 @@
     evt.preventDefault();
 
     map.classList.remove('map--faded');
-    document.getElementById('address').value = 'x:599 y:448';
+    addressValue.value = '599, 448';
     window.adsLoad();
   });
 
@@ -33,7 +34,7 @@
     var onMouseMove = function (moveEvt) {
       moveEvt.preventDefault();
 
-      document.getElementById('address').value = 'x:' + button.style.top + '  ' + 'y:' + button.style.left;
+      addressValue.value = button.style.top + ', ' + button.style.left;
 
       var shift = {
         x: startCoords.x - moveEvt.clientX,

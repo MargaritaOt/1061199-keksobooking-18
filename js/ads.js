@@ -3,7 +3,9 @@
 (function () {
   window.adsLoad = function () {
     var pinElement = document.querySelector('#pin').content.querySelector('.map__pin');
+
     window.load(function (adsArray) {
+      var adsArray = adsArray.slice(1, 6);
       var fragment = document.createDocumentFragment();
       for (var k = 0; k < adsArray.length; k++) {
         var pin = pinElement.cloneNode(true);
@@ -18,5 +20,5 @@
 
       document.querySelector('.map__pins').appendChild(fragment);
     });
-  };
+  }
 })();

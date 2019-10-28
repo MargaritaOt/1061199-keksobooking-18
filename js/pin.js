@@ -6,9 +6,9 @@
   addressValue.value = '603, 237';
 
   var map = document.querySelector('.map');
-  window.mapPinActive = document.querySelector('.map__pin--main');
+  window.onPinActive = document.querySelector('.map__pin--main');
 
-  window.mapPinActive.addEventListener('keydown', function (evt) {
+  window.onPinActive.addEventListener('keydown', function (evt) {
     if (evt.keyCode === window.ENTER_KEYCODE) {
       window.adsLoad();
       map.classList.remove('map--faded');
@@ -16,7 +16,7 @@
     }
   });
 
-  window.mapPinActive.addEventListener('mousedown', function (evt) {
+  window.onPinActive.addEventListener('mousedown', function (evt) {
     evt.preventDefault();
 
     map.classList.remove('map--faded');
